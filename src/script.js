@@ -1,5 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
+import {Pane} from 'tweakpane';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 /**
@@ -35,6 +36,20 @@ window.addEventListener('resize', () =>
 })
 
 /**
+ * Debug panel
+ */
+
+const pane = new Pane(
+    {
+        title: 'Parameters'
+    }
+)
+const parameters =
+    {
+        color: '#8dF'
+    }
+
+/**
  * Camera
  */
 // Base camera
@@ -53,8 +68,17 @@ controls.enableDamping = true
  */
 const cube = new THREE.Mesh(
     new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    new THREE.MeshBasicMaterial({ color: parameters.color })
 )
+
+// Debug
+pane.addInput(
+    parameters,
+    'color').on('change',()=>
+{
+    cube.material.color = new THREE.Color(parameters.color)
+})
+
 scene.add(cube)
 
 /**
