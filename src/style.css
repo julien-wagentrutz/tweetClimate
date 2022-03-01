@@ -1,3 +1,10 @@
+:root
+{
+    --color-primary: #16202A;
+    --color-secondary: #F6A75E;
+    --color-primary-bis: #30465C;
+}
+
 *
 {
     margin: 0;
@@ -8,12 +15,266 @@ html,
 body
 {
     overflow: hidden;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    font-family: "Helvetica Neue", sans-serif;
 }
 
 .webgl
 {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     outline: none;
+    z-index: 0;
+}
+
+.logo_content
+{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    background: var(--color-primary);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.logo_content h1
+{
+    color: #FFF;
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+
+section
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 70%;
+    height: 100%;
+    z-index: 1000;
+    transition: transform 2s;
+    padding: 55px 80px;
+    box-sizing: border-box;
+
+}
+
+section.appear
+{
+    transform: translateX(-100%);
+}
+
+section .exit
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    background: var(--color-primary);
+    cursor: pointer;
+}
+section .content
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+section .graph_content
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: calc(60% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--color-primary);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+section .graph_content .tilte_content
+{
+    width: 100%;
+    height: 20%;
+}
+
+section .graph_content .tilte_content p
+{
+    font-size: 24px;
+    color: #FFF;
+    font-weight: bold;
+}
+
+section .graph_content .graphX
+{
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    width: calc(100% - 80px);
+    list-style: none;
+    color: #8698A9;
+    font-size: 14px;
+}
+section .graph_content .graphY
+{
+    position: absolute;
+    left: 40px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+    height: calc(100% - 20% - 70px);
+    color: #8698A9;
+    font-size: 14px;
+}
+
+section .graph_content .graph
+{
+    width: 100%;
+    height: 80%;
+    padding: 0px 0px 40px 40px;
+    box-sizing: border-box;
+}
+
+section .graph_content .graph canvas
+{
+    border-color:#8698A9 ;
+    border-style: solid;
+    border-width: 0px 0px 1px 1px;
+}
+
+
+
+section .bottom_content
+{
+    display: flex;
+    width: 100%;
+    height: 40%;
+}
+
+section .bottom_content > div
+{
+    display: block;
+    width: calc(50% - 10px);
+    height: 100%;
+    padding: 20px;
+    background: var(--color-primary);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+section .bottom_content .tweet_content
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+section .bottom_content .tweet_content > div
+{
+    width: 100%;
+}
+.tweet_header
+{
+    height: 35%;
+    display: flex;
+}
+
+.tweet_header .profil_img img
+{
+    border-radius: 50%;
+}
+.tweet_header .profil_img
+{
+    width: 20%;
+}
+.tweet_header .profil_text
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 80%;
+    padding-left: 15px;
+    box-sizing: border-box;
+    color: #FFF;
+}
+
+.tweet_header .profil_text .surname
+{
+    color: #8698A9;
+}
+
+
+.tweet_body
+{
+    height: 50%;
+}
+.tweet_body .tweet
+{
+    font-size: 16px;
+    color: #fff;
+}
+
+.tweet_footer
+{
+    height: 15%;
+}
+
+.tweet_footer p
+{
+    font-size: 14px;
+    color: #8698A9;
+}
+
+
+section .bottom_content .temp_content
+{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-direction: column;
+}
+
+
+
+section .bottom_content .temp_content p
+{
+    text-align: center;
+}
+
+
+.temp_content .country_text
+{
+    font-size: 34px;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.temp_content .temp_text
+{
+    font-size: 74px;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.temp_content .year_text
+{
+    font-size: 24px;
+    color: var(--color-primary-bis);
+    font-weight: bold;
 }
